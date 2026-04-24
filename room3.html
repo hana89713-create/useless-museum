@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>展示室3｜世界一どうでもいい博物館</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/stylesheet.css" />
+</head>
+
+<body>
+
+<header class="site-header small">
+  <h1>展示室3：あなたの国のどうでもいい情報</h1>
+</header>
+
+<nav class="global-nav">
+  <a href="index.html">トップへ戻る</a>
+  <a href="room1.html">展示室1</a>
+  <a href="room2.html">展示室2</a>
+</nav>
+
+<main class="section">
+
+  <h2>展示室3：あなたの国のどうでもいい情報</h2>
+
+  <div id="room3-container">
+    読み込み中…
+  </div>
+
+</main>
+
+<script>
+  fetch("data/room3.json")
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById("room3-container");
+      container.innerHTML = "";
+
+      data.forEach(item => {
+        const imgTag = item.img
+          ? `<img src="${item.img}" alt="${item.title}" class="random-img">`
+          : "";
+
+        container.innerHTML += `
+          <div class="card">
+            <h3>${item.title}</h3>
+            ${imgTag}
+            <p>${item.text}</p>
+          </div>
+        `;
+      });
+    });
+</script>
+
+<footer class="site-footer">
+  <p>© 2026 世界一どうでもいい博物館</p>
+</footer>
+
+</body>
+</html>

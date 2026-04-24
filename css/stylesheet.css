@@ -1,0 +1,180 @@
+/* 全体 */
+body {
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+  margin: 0;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* ヘッダー */
+.site-header {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #6ec6ff, #a5d6a7);
+  color: #fff;
+}
+
+.site-header.small {
+  padding: 40px 20px;
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* ナビゲーション */
+.global-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: #fff;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.global-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.global-nav a:hover {
+  color: #0077cc;
+}
+
+/* セクション */
+.section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.section h2 {
+  border-left: 6px solid #6ec6ff;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+/* カード */
+.card {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* フォーム */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.form button {
+  padding: 12px;
+  background: #6ec6ff;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: #4aaae6;
+}
+
+/* フッター */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  background: #eee;
+  margin-top: 40px;
+}
+
+/* レスポンシブ */
+@media (max-width: 600px) {
+  .site-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .global-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.random-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 20px;
+  background: #a5d6a7;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.random-btn:hover {
+  background: #81c784;
+}
+
+.welcome-box {
+  background: #fff;
+  border: 1px solid #ccc; /* 細めの線 */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* ほんの少し影 */
+}
+
+.welcome-box h2 {
+  margin-top: 0;
+}
+
+/* 展示室の画像デザイン */
+figure {
+  margin: 15px 0;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+figure figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* ランダム展示の画像 */
+.random-img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+

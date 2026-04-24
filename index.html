@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>世界一どうでもいい博物館</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/stylesheet.css" />
+</head>
+
+<body>
+
+<header class="site-header">
+  <h1>世界一どうでもいい博物館</h1>
+  <p>あなたの人生に1ミリも影響しない展示をご覧ください</p>
+</header>
+
+<nav class="global-nav">
+  <a href="room1.html">展示室1</a>
+  <a href="room2.html">展示室2</a>
+  <a href="room3.html">展示室3</a>
+</nav>
+
+<main class="section">
+
+  <!-- ようこそ（囲み枠を追加） -->
+<div class="welcome-box">
+  <h2>ようこそ</h2>
+  <p>ここは、世界中のどうでもいい情報を集めた博物館です。</p>
+  <p>お好きな展示室へお進みください。</p>
+</div>
+
+
+  <!-- ランダム展示 -->
+  <h2>本日のランダム展示</h2>
+
+  <div id="random-display" class="card">
+    読み込み中…
+  </div>
+
+  <button id="random-button" class="random-btn">別の展示を見る</button>
+
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 世界一どうでもいい博物館（非公式）</p>
+</footer>
+
+<!-- ランダム展示スクリプト -->
+<script>
+  let displays = [];
+
+  const jsonFiles = [
+    "data/room1.json",
+    "data/room2.json",
+    "data/room3.json"
+  ];
+
+  // 3つの JSON をまとめて読み込む
+  Promise.all(jsonFiles.map(file => fetch(file).then(res => res.json())))
+    .then(results => {
+      // results は [room1の配列, room2の配列, room3の配列]
+      displays = results.flat(); // 1つの配列にまとめる
+      showRandomDisplay();
+    });
+
+  function showRandomDisplay() {
+    if (displays.length === 0) return;
+
+    const random = displays[Math.floor(Math.random() * displays.length)];
+    const box = document.getElementById("random-display");
+
+    const imgTag = random.img
+      ? `<img src="${random.img}" alt="${random.title}" class="random-img">`
+      : "";
+
+    box.innerHTML = `
+      <h3>${random.title}</h3>
+      ${imgTag}
+      <p>${random.text}</p>
+    `;
+  }
+
+  document.getElementById("random-button")
+    .addEventListener("click", showRandomDisplay);
+</script>
+<script>
+  let displays = [];
+
+  const jsonFiles = [
+    "data/room1.json",
+    "data/room2.json",
+    "data/room3.json"
+  ];
+
+  // 3つの JSON をまとめて読み込む
+  Promise.all(jsonFiles.map(file => fetch(file).then(res => res.json())))
+    .then(results => {
+      // results は [room1の配列, room2の配列, room3の配列]
+      displays = results.flat(); // 1つの配列にまとめる
+      showRandomDisplay();
+    });
+
+  function showRandomDisplay() {
+    if (displays.length === 0) return;
+
+    const random = displays[Math.floor(Math.random() * displays.length)];
+    const box = document.getElementById("random-display");
+
+    const imgTag = random.img
+      ? `<img src="${random.img}" alt="${random.title}" class="random-img">`
+      : "";
+
+    box.innerHTML = `
+      <h3>${random.title}</h3>
+      ${imgTag}
+      <p>${random.text}</p>
+    `;
+  }
+
+  document.getElementById("random-button")
+    .addEventListener("click", showRandomDisplay);
+</script>
+
+</body>
+</html>
